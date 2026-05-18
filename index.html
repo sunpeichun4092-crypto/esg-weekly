@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ESG 周选题速递 · 2026-05-18</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans SC',system-ui,sans-serif;background:#f5f5f5}
+
+.slide{width:100%;display:flex;flex-direction:column;justify-content:flex-start;position:relative;padding:clamp(2.5rem,5vw,5rem) clamp(2.5rem,6vw,6rem);padding-bottom:clamp(3rem,6vw,6rem);border-bottom:1px solid #e8ecf0;}
+.slide:last-child{border-bottom:none}
+.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:99}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(0,0,0,.15);cursor:pointer;transition:all .25s;border:none;padding:0}
+.dot.on{background:#06874E;transform:scale(1.3)}
+#s1{background:linear-gradient(135deg,#e8f5ef 0%,#f0faf5 50%,#e3f2fb 100%)}
+#s1::after{content:'';position:absolute;right:-5%;top:-15%;width:52vw;height:52vw;border-radius:50%;background:radial-gradient(circle,rgba(6,135,78,.1) 0%,transparent 65%);pointer-events:none}
+.cover-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(6,135,78,.12);border:1.5px solid rgba(6,135,78,.3);color:#06874E;padding:6px 18px;border-radius:99px;font-size:.85rem;font-weight:600;margin-bottom:clamp(14px,3vh,28px)}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:#06874E;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.cover-line{width:52px;height:4px;background:#06874E;border-radius:2px;margin-bottom:clamp(12px,2.5vh,22px)}
+.cover-h1{font-family:'Noto Serif SC',serif;font-weight:700;font-size:clamp(2.6rem,6vw,4.8rem);color:#111;line-height:1.15;margin-bottom:clamp(10px,2vh,18px)}
+.cover-h1 em{font-style:normal;color:#06874E}
+.cover-sub{font-size:clamp(.9rem,1.6vw,1.15rem);color:#444;line-height:1.8;max-width:640px;margin-bottom:clamp(24px,5vh,46px)}
+.cover-stats{display:flex;gap:clamp(20px,4vw,52px);flex-wrap:wrap}
+.cs-item{display:flex;flex-direction:column;gap:5px}
+.cs-lbl{font-size:.8rem;color:#777;letter-spacing:.04em}
+.cs-val{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#111;line-height:1}
+.cs-val.hi{color:#06874E}
+.cs-valc{font-size:1.05rem;font-weight:600;color:#333}
+.sh-tag{font-size:.8rem;color:#06874E;letter-spacing:.08em;font-weight:600;text-transform:uppercase;margin-bottom:4px}
+.sh-title{font-family:'Noto Serif SC',serif;font-weight:700;font-size:clamp(1.4rem,3vw,2.2rem);color:#111;margin-bottom:4px}
+.sh-line{width:44px;height:4px;background:#06874E;border-radius:2px;margin:8px 0 clamp(10px,2vh,20px)}
+.snum{position:absolute;right:clamp(2rem,5vw,5rem);top:clamp(1.5rem,4vh,3rem);font-size:clamp(5rem,10vw,9rem);font-weight:900;color:rgba(6,135,78,.06);line-height:1;pointer-events:none;user-select:none}
+.ext-list{display:flex;flex-direction:column;gap:7px}
+.ext-card{background:#f0f4ff;border:1px solid #dde5f8;border-radius:8px;padding:7px 12px;text-decoration:none;color:inherit;display:block}
+.ext-card:hover{border-color:#2563eb;background:#e8eeff;box-shadow:0 2px 8px rgba(37,99,235,.1)}
+.ext-kw{font-size:.88rem;font-weight:700;color:#1a3a8f;margin-bottom:2px}
+.ext-desc{font-size:.7rem;color:#555;line-height:1.45}
+.ext-src{font-size:.6rem;color:#aaa;margin-top:2px}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(5px,0.9vw,9px);margin-top:clamp(6px,1vh,12px)}
+.tc{background:#fff;border:1.5px solid #e8ecf5;border-radius:10px;overflow:hidden}
+.tc::before{content:'';display:block;height:3px;background:#06874E}
+.tc:hover{border-color:#06874E;box-shadow:0 2px 10px rgba(6,135,78,.08)}
+.tc summary{list-style:none;padding:clamp(8px,1.1vw,13px) clamp(10px,1.5vw,16px);cursor:pointer;user-select:none}
+.tc summary::-webkit-details-marker{display:none}
+.tc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px}
+.tc-n{font-size:.82rem;font-weight:800;color:#06874E;line-height:1;letter-spacing:.02em;flex-shrink:0}
+.tc-t{font-size:clamp(.82rem,1.3vw,1rem);color:#111;font-weight:700;line-height:1.4;margin-bottom:4px}
+.tc-h{font-size:clamp(.72rem,.95vw,.82rem);color:#666;line-height:1.5;margin-bottom:6px}
+.tc-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px}
+.tags{display:flex;flex-wrap:wrap;gap:3px}
+.tag{font-size:.65rem;padding:2px 7px;border-radius:99px;font-weight:600}
+.tp{background:rgba(6,135,78,.1);color:#06874E}
+.tm{background:rgba(230,168,23,.12);color:#c47f00}
+.tg{background:rgba(37,99,235,.1);color:#2563eb}
+.tc2{background:rgba(124,58,237,.1);color:#7c3aed}
+.tt{background:rgba(220,38,38,.1);color:#dc2626}
+.stars{font-size:.8rem;letter-spacing:1px;flex-shrink:0}
+.stars .s{color:#e6a817}
+.stars .e{color:#ddd}
+.tc-links{padding:8px clamp(10px,1.5vw,16px) 12px;background:#f8fbf9;border-top:1px solid #e8f0ec}
+.tc-links-title{font-size:.7rem;color:#888;font-weight:600;margin-bottom:5px;letter-spacing:.04em}
+.tc-link{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
+.tc-link a{font-size:.75rem;color:#06874E;text-decoration:none;line-height:1.4}
+.tc-link a:hover{text-decoration:underline}
+.tc-link-src{font-size:.65rem;color:#aaa;flex-shrink:0}
+.tc-arrow{font-size:.7rem;color:#aaa;flex-shrink:0;transition:transform .2s}
+details[open] .tc-arrow{transform:rotate(180deg)}
+.biz-card{background:#fff;border-radius:10px;overflow:hidden;border:1.5px solid #e8ecf5}
+.biz-card:hover{border-color:#06874E;box-shadow:0 2px 10px rgba(6,135,78,.08)}
+.biz-body{padding:clamp(8px,1.1vw,14px) clamp(10px,1.5vw,16px)}
+.biz-name{font-size:clamp(.85rem,1.2vw,.95rem);font-weight:700;color:#111;margin-bottom:4px}
+.biz-desc{font-size:.75rem;color:#555;line-height:1.5;margin-bottom:6px}
+.biz-trigger{font-size:.68rem;color:#888}
+@media(max-width:768px){
+  .slide{padding:16px 16px 72px;}
+  .dots{right:unset;top:unset;transform:none;bottom:18px;left:50%;transform:translateX(-50%);flex-direction:row;gap:8px;background:rgba(255,255,255,.85);padding:8px 16px;border-radius:99px;box-shadow:0 2px 12px rgba(0,0,0,.12);backdrop-filter:blur(8px);}
+  .dot.on{width:22px;height:7px;border-radius:4px}
+  #s1::after{display:none}
+  .cover-h1{font-size:2.4rem}
+  .snum{display:none}
+  .tgrid{grid-template-columns:1fr;gap:8px}
+  .sh-title{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+<nav class="dots">
+  <div class="dot  on" onclick="goTo(0)"></div>
+  <div class="dot" onclick="goTo(1)"></div>
+  <div class="dot" onclick="goTo(2)"></div>
+  <div class="dot" onclick="goTo(3)"></div>
+  <div class="dot" onclick="goTo(4)"></div>
+</nav>
+
+<!-- ══ 01 封面 ══ -->
+<section class="slide" id="s1">
+  <div class="cover-badge"><span class="badge-dot"></span>TouchBase · ESG 周选题速递</div>
+  <div class="cover-line"></div>
+  <h1 class="cover-h1">本周 <em>ESG</em><br>选题速递</h1>
+  <p class="cover-sub">本田69年首亏·电池护照倒计时·关税窗口期</p>
+  <div class="cover-stats">
+    <div class="cs-item"><span class="cs-lbl">发布日期</span><span class="cs-valc">2026-05-18</span></div>
+    <div class="cs-item"><span class="cs-lbl">本期选题</span><span class="cs-val hi">20</span></div>
+    <div class="cs-item"><span class="cs-lbl">商业热议</span><span class="cs-val">6</span></div>
+    <div class="cs-item"><span class="cs-lbl">传播商机</span><span class="cs-val">10</span></div>
+  </div>
+</section>
+
+<!-- ══ 02 商业大事件 ══ -->
+<section class="slide" id="s2" style="background:#fff">
+  <div class="snum">02</div>
+  <div class="sh-tag">🌐 本周商业大事件</div>
+  <div class="sh-title">本周热议</div>
+  <div class="sh-line" style="margin:5px 0 8px"></div>
+  <div class="ext-list">
+    <a class="ext-card" href="https://wallstreetcn.com/articles/3772390" target="_blank">
+      <div class="ext-kw">本田69年首次亏损，净亏182亿元，电动化「急刹车」</div>
+      <div class="ext-desc">2025财年本田录得净亏损4239亿日元（约182亿元人民币），上市69年来首次年度亏损。电动车业务减值损失高达23万亿日元，叠加北美市场疲软与中国市场竞争加剧，「增收降利」怪圈正在吞噬日系巨头的转型底气。</div>
+      <div class="ext-src">华尔街见闻，2026-05-14</div>
+    </a>
+    <a class="ext-card" href="https://finance.sina.com.cn/roll/2026-05-14/doc-inhxwktz9989966.shtml" target="_blank">
+      <div class="ext-kw">第三届电池护照与可持续发展技术论坛深圳召开，300+代表直面欧盟合规倒计时</div>
+      <div class="ext-desc">2026年5月13日，深圳。300余位国内外代表齐聚一堂，核心议题只有一个：2027年2月18日欧盟数字电池护照强制落地，中国动力电池企业准备好了吗？</div>
+      <div class="ext-src">新浪财经，2026-05-15</div>
+    </a>
+    <a class="ext-card" href="https://www.21jingji.com/article/20260515/herald/7d0ec199a465dab4f50b5eca14000ecc.html" target="_blank">
+      <div class="ext-kw">日系车三巨头赚钱神话破灭：丰田、本田、日产集体利润下滑</div>
+      <div class="ext-desc">财报季最震撼的一幕：日系三强2025财年全面失速，「躺赚」时代宣告终结。丰田净利润连续两年下滑，日产连续亏损，本田更是69年首亏——转型代价正在财报上真实显现。</div>
+      <div class="ext-src">21财经，2026-05-15</div>
+    </a>
+    <a class="ext-card" href="https://news.qq.com/rain/a/20260501A02HHB00" target="_blank">
+      <div class="ext-kw">护照、身份证与罚单：动力电池出海的隐性门槛远比关税可怕</div>
+      <div class="ext-desc">欧盟《电池与废电池法规》2027年2月强制落地，所有进入欧洲市场、容量超2kWh的动力电池须配备完整生命周期数字档案。容量不够只是最小问题——没有数字护照，整批货物面临被拒之门外的风险。</div>
+      <div class="ext-src">QQ新闻，2026-05-01</div>
+    </a>
+    <a class="ext-card" href="https://finance.sina.com.cn/jjxw/2026-05-10/doc-inhxmuxx2358458.shtml" target="_blank">
+      <div class="ext-kw">中国消费者更看重「绿色可追溯」，为全球绿色供应链注入新动力</div>
+      <div class="ext-desc">路透社报道：中国消费者和进口商对食品安全、绿色供应链和可追溯产品关注度显著上升，正在影响全球大宗商品贸易格局，连巴西雨林保护都受到积极影响。</div>
+      <div class="ext-src">新浪财经，2026-05-11</div>
+    </a>
+    <a class="ext-card" href="https://www.kingandwood.com/cn/zh/insights/latest-thinking/the-new-normal-of-human-rights-compliance-in-supply-chain-convergence-of-us-and-eu-regulations-and-implications-for-chinese-enterprises.html" target="_blank">
+      <div class="ext-kw">USTR以强迫劳动为由启动新一轮301调查，美欧供应链人权监管趋同</div>
+      <div class="ext-desc">2026年3月，美国贸易代表办公室以强迫劳动为由启动新一轮301调查，将供应链人权合规监管延伸至全球经济体，打破了过往聚焦个别国家、特定行业的传统。</div>
+      <div class="ext-src">金杜律所，2026-04-08</div>
+    </a>
+  </div>
+</section>
+
+<!-- ══ 03 选题 01–10 ══ -->
+<section class="slide" id="s3" style="background:#f7f9ff">
+  <div class="snum">03</div>
+  <div class="sh-tag">✍️ 本周选题</div>
+  <div class="sh-title">精选选题 01 – 10</div>
+  <div class="sh-line"></div>
+  <div class="tgrid">
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">01</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">本田69年首亏，烧掉的不只是钱</div>
+      <div class="tc-h">触发热点：本田2025财年净亏182亿元，上市69年首次亏损，电动化减值损失吞噬利润（2026-05-14）。
+
+选题切入：电动化转型的「过渡期」究竟要烧多少钱？本田的答案是23万亿日元减值——而这笔钱的背后，是无数在IPO文件里写过「零碳承诺」的投资者正在替它买单。
+
+CEO启发：本周可以做的一件事：拿出你的ESG转型路线图，把「研发投入/减值拨备」这两个数字填进去，发给CFO对焦——不是为了好看，是为了不被财报打脸。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tc2">投资关注</span></div><div class="stars"><span class="s">★★★★★</span><span class="e"></span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://wallstreetcn.com/articles/3772390" target="_blank">本田69年首次亏损，华尔街见闻</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">02</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">卖电池要先过「数字审查」：2027年2月18日，不是准备好的问题，是倒计时</div>
+      <div class="tc-h">触发热点：第三届电池护照与可持续发展技术论坛深圳召开，300+行业代表直面欧盟合规截止日（2026-05-13）。
+
+选题切入：动力电池出海的新门票不是价格，是一张包含全生命周期数据的数字护照。距离强制落地还有9个月，宁德时代、比亚迪的供应链准备好被「逐层扫描」了吗？
+
+CEO启发：本周可以做的一件事：联系你的供应商，确认他们是否已开始准备碳足迹数据申报——9个月后，没有护照的电池等于没有准入资格。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tp">政策监管</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★★</span><span class="e"></span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://finance.sina.com.cn/roll/2026-05-14/doc-inhxwktz9989966.shtml" target="_blank">电池护照论坛新浪财经</a><span class="tc-link-src"></span></div>
+      <div class="tc-link"><a href="https://news.qq.com/rain/a/20260501A02HHB00" target="_blank">动力电池出海隐性门槛</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">03</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">困在「默认值」里的宝钢2.0：真实碳排放比欧盟设定的低，但没人帮它说出来</div>
+      <div class="tc-h">触发热点：中美关税90天窗口期延续至2026年11月，中国出口供应链迎来短暂喘息，但欧盟CBAM碳边境税轨道并未暂停（背景持续）。
+
+选题切入：钢铁、铝、化肥、水泥——CBAM覆盖的行业里，多少中国企业的真实碳排放低于欧盟按行业平均值「默认分配」的数字？没有披露，就等于接受最贵的罚款。沉默正在变成最昂贵的选择。
+
+CEO启发：本周可以做的一件事：查一下你的产品是否在CBAM覆盖范围内，如果是，立刻启动碳排放核查——用真实数据替换掉欧盟给你的「默认值」，可能直接省掉几百万关税。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tp">政策监管</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.huxiu.com/article/4848559.html" target="_blank">中国汽车出海的重要变量，虎嗅</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">04</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">日系三巨头集体失速：「增收降利」的背后，是谁在替转型买单？</div>
+      <div class="tc-h">触发热点：丰田、本田、日产2025财年财报密集发布，三家同时录得利润下滑或亏损（2026-05-14至16）。
+
+选题切入：当全球最会赚钱的汽车公司开始在财报里大量计提「电动化减值」，这不只是一个行业故事——它是ESG承诺遇上商业现实的最直白碰撞。谁在中间被夹击？
+
+CEO启发：本周可以做的一件事：重新审视你的新能源转型时间表，对照竞争对手的减值损失数字，问自己：如果市场加速，我的账面能抗住几年？</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tc2">投资关注</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.21jingji.com/article/20260515/herald/7d0ec199a465dab4f50b5eca14000ecc.html" target="_blank">日系车三巨头赚钱神话破灭，21财经</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">05</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">「我不知道供应商在做什么」——这句话的保质期，2027年2月就到了</div>
+      <div class="tc-h">触发热点：欧盟《电池与废电池法规》数字电池护照2027年2月18日强制落地，要求供应链数据全链条溯源（2026-05-07）。
+
+选题切入：供应链透明化从「加分项」变成「准入票」的临界点到了。二供、三供的碳排放数据，你真的知道吗？不知道，不是借口，是风险。
+
+CEO启发：本周可以做的一件事：绘制一张你的一级供应商碳排放地图，哪怕只是估算——这张图将是你进入欧洲市场的第一道关卡。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tp">政策监管</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://h5.ifeng.com/c/vivo/v002Z--JTGWIhbrNJqiCkHw6zHVLBSzQYnTIdiL--5w3KpFRk__?isNews=1&showComments=0" target="_blank">卖电池要先考欧盟律师证，凤凰网</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">06</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">SHEIN的「血汗工厂」故事，为什么每隔6个月就会再爆一次？</div>
+      <div class="tc-h">触发热点：《费加罗报》2025年12月揭露SHEIN代工厂每天工作14小时、月薪500欧元、无社保医保；美国USTR 2026年3月启动以强迫劳动为由的新301调查（背景持续）。
+
+选题切入：SHEIN的供应链丑闻不是新闻，是一个系统性结构。每一次爆发，都是因为相同的问题没有被解决。真正的问题不是某个工厂，而是整个超快时尚模式本身的成本逻辑。
+
+CEO启发：本周可以做的一件事：检查你的供应商审计记录上一次更新是什么时候——如果超过18个月，你可能正在积累一枚定时炸弹。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.rfi.fr/cn/%E4%B8%93%E6%A0%8F%E6%A3%80%E7%B4%A2/%E6%B3%95%E5%9B%BD%E6%8A%A5%E7%BA%B8%E6%91%98%E8%A6%81/20251213-%E8%B4%B9%E5%8A%A0%E7%BD%97%E6%8A%A5-%E6%8F%AD%E9%9C%B2shein%E7%9A%84%E8%A1%80%E6%B1%97%E5%B7%A5%E5%8E%82-%E6%AF%8F%E5%A4%A9%E5%B7%A5%E4%BD%9C14%E5%B0%8F%E6%97%B6-%E6%B2%A1%E6%9C%89%E7%A4%BE%E4%BF%9D%E5%92%8C%E5%8C%BB%E4%BF%9D" target="_blank">《费加罗报》揭露SHEIN血汗工厂，RFI</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">07</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">比亚迪海外销量+55%，但碳足迹「身份证」办好了吗？</div>
+      <div class="tc-h">触发热点：比亚迪2026年一季度海外销量约32万辆，同比增长55%，欧洲市场份额持续扩大（2026-04-30）。
+
+选题切入：量上去了，但欧盟碳足迹披露要求的时间表没有停——2027年，比亚迪卖出去的每一辆车背后的电池，都需要一张数字「身份证」。销量神话背后，合规账单正在逼近。
+
+CEO启发：本周可以做的一件事：如果你在中国有供应商出口欧洲，问他们「电池护照」准备到第几步了——你的名字也在他们的供应链数据里。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★★</span><span class="e"></span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.chinastarmarket.cn/detail/2361311" target="_blank">比亚迪Q1财报海外销量大增55%</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">08</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">中国消费者开始「验货」了：绿色可追溯，从营销词变成了真实购买决策</div>
+      <div class="tc-h">触发热点：路透社报道，中国消费者对绿色供应链和可追溯产品关注度显著上升，正在影响全球大宗商品贸易（2026-05-10）。
+
+选题切入：这是一个反常识的发现——中国消费者，那个被认为「只看价格不看碳足迹」的群体，正在用购买行为改变巴西的森林砍伐逻辑。消费者比你想象的更早觉醒。
+
+CEO启发：本周可以做的一件事：在你的下一场消费者调研里，加一道题：「你愿意为可追溯来源的产品多付多少钱？」答案可能让你重新设计产品定价策略。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tt">科技趋势</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://finance.sina.com.cn/jjxw/2026-05-10/doc-inhxmuxx2358458.shtml" target="_blank">中国消费者更看重绿色可追溯，新浪财经</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">09</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">本田电动化「急刹车」：当一家车企选择「减速」，谁是真正的赢家？</div>
+      <div class="tc-h">触发热点：本田2026财年预测电动化调整带来的损失将继续，社长三部敏宏在记者会上明确「放慢节奏」（2026-05-16）。
+
+选题切入：当本田公开宣告放慢电动化步伐，是理性回归还是战略失误？对中国品牌来说，竞争对手的「暂停键」是窗口期，还是陷阱？
+
+CEO启发：本周可以做的一件事：分析你的竞争对手中谁在「放慢绿色转型节奏」，评估这是否是你加速建立差异化的时机。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tc2">投资关注</span></div><div class="stars"><span class="s">★★★</span><span class="e">★★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="http://field.10jqka.com.cn/20260517/c676745208.shtml" target="_blank">本田69年首次亏损，电动化成主因</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">10</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">出海下半场，「低碳」才是真门票——汽车行业板块营收同比增长的背后</div>
+      <div class="tc-h">触发热点：汽车行业2026年5月投资策略报告：2026Q1汽车板块营收同比增长，出海占比提升，但欧盟ESG法规正成为新贸易壁垒（2026-05-13）。
+
+选题切入：海外利润正在成为中国汽车板块的主旋律，但进入「利润主导阶段」的前提，是先过碳足迹、劳工权益等合规关卡。「出海下半场」的赛制变了。
+
+CEO启发：本周可以做的一件事：如果你的企业有海外市场计划，把「目标市场ESG法规合规时间表」列为战略规划必填项，而不是附录。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tp">政策监管</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://finance.sina.com.cn/roll/2026-05-13/doc-inhxtkrt4647117.shtml" target="_blank">汽车行业5月投资策略报告，新浪财经</a><span class="tc-link-src"></span></div>
+    </div></details>
+  </div>
+</section>
+
+<!-- ══ 04 选题 11–20 ══ -->
+<section class="slide" id="s4" style="background:#f7f9ff">
+  <div class="snum">04</div>
+  <div class="sh-tag">✍️ 本周选题</div>
+  <div class="sh-title">精选选题 11 – 20</div>
+  <div class="sh-line"></div>
+  <div class="tgrid">
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">11</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">一个零部件厂主的白夜：净利润翻倍，但欧美合规账单正在来路上</div>
+      <div class="tc-h">触发热点：李尔公司Q1财报净利润同比翻倍，全球汽车零部件供应商盈利复苏（2026-05-13）。
+
+选题切入：全球汽车零部件供应商李尔净利翻倍，但翻倍的不只有利润——欧美同步收紧的碳足迹披露和供应链人权要求，正在给每一个「好财报」附上一张隐形账单。一位中国零部件厂主的真实困境。
+
+CEO启发：本周可以做的一件事：如果你是零部件供应商，确认你的主要客户是否已收到欧盟供应链尽职调查要求，并倒推你需要准备什么文件。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tc2">投资关注</span></div><div class="stars"><span class="s">★★★</span><span class="e">★★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.eet-china.com/mp/a494666.html" target="_blank">李尔Q1财报净利润翻倍</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">12</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">五部门联合发布《工业产品绿色设计指南》：中国版「绿色门槛」悄悄立起来了</div>
+      <div class="tc-h">触发热点：工信部联合四部委发布《工业产品绿色设计指南（2026年版）》（2026-04-24）。
+
+选题切入：别只盯着欧盟——中国自己的绿色设计标准正在成体系。对制造业企业来说，这不是加分项，是未来采购和招标的隐形门槛。提前布局的企业，正在积累竞争对手看不见的优势。
+
+CEO启发：本周可以做的一件事：下载《工业产品绿色设计指南2026版》，标出与你产品品类最相关的3条要求，排进今年的产品迭代计划。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tp">政策监管</span><span class="tag tt">科技趋势</span></div><div class="stars"><span class="s">★★★</span><span class="e">★★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.reach24h.com/carbon-neutrality/industry-news/industrial-product-green" target="_blank">五部门联合印发工业产品绿色设计指南2026版</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">13</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">「强迫劳动」不再是遥远的法律词汇——它开始出现在301调查里</div>
+      <div class="tc-h">触发热点：美国USTR 2026年3月以强迫劳动为由启动新一轮301调查，覆盖范围扩至全球供应链（2026-04-08）。
+
+选题切入：「我们这里没有强迫劳动」——这句话正在变得越来越难用。新一轮美国301调查不再聚焦个别国家，而是追溯整条全球供应链。你的二级供应商在哪里生产，开始变得和你自己的工厂一样重要。
+
+CEO启发：本周可以做的一件事：梳理你的供应商名单中，有多少来自被UFLPA列入高风险区域——如果超过10%，现在开始迁移规划不算早。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tp">政策监管</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.kingandwood.com/cn/zh/insights/latest-thinking/the-new-normal-of-human-rights-compliance-in-supply-chain-convergence-of-us-and-eu-regulations-and-implications-for-chinese-enterprises.html" target="_blank">供应链人权合规新常态，金杜律所</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">14</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">那个工厂主拍着胸脯说「我们合规」，结果货被美国海关扣了三个月</div>
+      <div class="tc-h">触发热点：2025-2026年欧美供应链合规执法持续加强，中资企业维权应对实践中发现大量「自认为合规」的企业实际存在漏洞（2026-03-26）。
+
+选题切入：一个真实案例：某中国出口商完成了所有内部审计，结果货物到美国港口还是被扣，原因是二级供应商的棉花来源无法溯源。「我以为我们已经合规了」——这句话正在越来越贵。
+
+CEO启发：本周可以做的一件事：要求你的一级供应商提供他们对二级供应商的审计报告——这一级的透明度，现在已经成为你自己的合规责任。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.kingandwood.com/cn/zh/insights/latest-thinking/a-summary-of-eu-and-us-law-enforcement-on-supply-chain-compliance-in-2025-and-trends-in-2026-ii.html" target="_blank">2025年欧美供应链合规执法总结，金杜律所</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">15</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">TÜV南德出现在电池护照现场：「第三方认证」正在变成出海的标配</div>
+      <div class="tc-h">触发热点：TÜV南德在CIBF2026展会上就欧盟电池法规与电池护照合规路径发表演讲（2026-05-14）。
+
+选题切入：当「认证机构」开始密集出现在电池展会现场，这件事本身就是信号。电池护照不只是数据填报，它需要被第三方验证——这意味着一个新的「合规服务」市场正在形成，而中国电池企业是最大的客户群。
+
+CEO启发：本周可以做的一件事：了解TÜV南德、SGS、Bureau Veritas对电池护照认证的报价和周期——比较一下，在截止日前9个月，能否排上档期是真实问题。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tp">政策监管</span><span class="tag tt">科技趋势</span></div><div class="stars"><span class="s">★★★</span><span class="e">★★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.tuvsud.cn/zh-cn/press-and-media/2026/may/cibf-2026" target="_blank">TÜV南德聚焦欧盟电池法规，2026-05-14</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">16</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">寧德時代的ESG報告里有什麼：中国电池老大用数字讲的一个故事</div>
+      <div class="tc-h">触发热点：宁德时代发布2025年度ESG报告（第五份），内容涵盖碳管理、循环经济与供应链透明化（2026-03-31）。
+
+选题切入：中国最大动力电池企业的ESG报告里，有多少是真正影响欧洲买家决策的数字，有多少是给投资者看的漂亮话？拆解一份年报背后的「叙事逻辑」。
+
+CEO启发：本周可以做的一件事：把你的ESG报告和宁德时代的对比一遍——你的数字是否够具体、够可验证？还是一页漂亮的目标而已？</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tc2">投资关注</span><span class="tag tm">市场动态</span></div><div class="stars"><span class="s">★★★</span><span class="e">★★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.catl.com/uploads/1/file/public/202603/20260331120958_q7ox7p1k6m.pdf" target="_blank">宁德时代2025年ESG报告</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">17</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">那个把巴西雨林写进采购合同的买手，是在做秀，还是在做生意？</div>
+      <div class="tc-h">触发热点：路透社报道，中国进口商对可追溯食品的需求正在真实影响巴西大豆贸易和雨林保护（2026-05-10）。
+
+选题切入：一位中国食品进口商在采购合同里加入「雨林零毁损」条款，起初是为了进欧盟超市做背书。但意外的是，这一条款让他在国内消费者中打出了品牌溢价。反常识的结果：做ESG，是因为它有商业回报。
+
+CEO启发：本周可以做的一件事：看看你的产品里，有没有一个「溯源故事」可以讲给消费者——不是科普，是一个有名字、有地点、有情感的真实故事。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://finance.sina.com.cn/jjxw/2026-05-10/doc-inhxmuxx2358458.shtml" target="_blank">中国消费者更看重绿色可追溯</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">18</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">CFO和CDO吵架了：一场发生在日系车企内部的绿色转型博弈</div>
+      <div class="tc-h">触发热点：本田财报显示电动化调整带来巨额亏损，但社长同时宣布放慢节奏——内部战略张力罕见公开化（2026-05-16）。
+
+选题切入：本田CFO看着23万亿日元的减值损失，和主管电动化的CDO之间，那场会议里到底说了什么？一个关于绿色转型内部博弈的推演——当财务压力与战略承诺正面冲突，CEO的签字意味着什么？
+
+CEO启发：本周可以做的一件事：模拟一场你的CFO与「绿色转型负责人」之间的对话——如果只有一项预算，他们会怎么争？答案会告诉你你们内部的真实优先级。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tc2">投资关注</span></div><div class="stars"><span class="s">★★★</span><span class="e">★★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://nev.ofweek.com/2026-05/ART-71008-8420-30687579.html" target="_blank">本田在华休克式疗法，OFweek新能源</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">19</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">出口商的「90天幻觉」：关税窗口期里，没人在给供应链做体检</div>
+      <div class="tc-h">触发热点：中美关税90天暂停机制持续运行，部分出口商庆幸「还好能赶上旺季」；欧盟供应链合规要求同期继续推进（背景持续）。
+
+选题切入：中美关税战的「停战」让不少出口商误以为压力解除了。但这90天里，欧美的供应链合规审查时钟没有暂停——停战期可能是企业最后一个窗口，补做它们一直拖着没做的供应链体检。
+
+CEO启发：本周可以做的一件事：在关税「停战」期间，把你们的供应链合规风险排查提上议程——窗口期结束后，没有体检记录的企业会更难自证清白。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tp">政策监管</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★</span><span class="e">★★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.bbc.com/zhongwen/articles/czxywd2ggveo/simp" target="_blank">中美关税休战再延90天，BBC中文</a><span class="tc-link-src"></span></div>
+    </div></details>
+    <details class="tc"><summary>
+      <div class="tc-head"><span class="tc-n">20</span><span class="tc-arrow">▾</span></div>
+      <div class="tc-t">她辞掉外企高管，去做「供应链透明化」创业——3年后，她的客户是那些正在被查的工厂</div>
+      <div class="tc-h">触发热点：欧盟供应链尽职调查法规与美国UFLPA执法同步强化，催生「合规服务」新赛道（2026年持续）。
+
+选题切入：一个真实的人物故事：某前某知名外企供应链总监，三年前离职创业，专门帮中小制造企业做供应链透明化认证。她的客户从最初的「被动应付」，到现在「主动排队」——因为不合规，货真的被扣了。这是一个关于危机创造市场的故事。
+
+CEO启发：本周可以做的一件事：找一位曾在外资企业做过供应链合规的朋友，喝杯咖啡——他们的经验，可能比任何顾问报告都值钱。</div>
+      <div class="tc-meta"><div class="tags"><span class="tag tm">市场动态</span><span class="tag tg">国际视角</span></div><div class="stars"><span class="s">★★★★</span><span class="e">★</span></div></div>
+    </summary>
+    <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+      <div class="tc-link"><a href="https://www.kingandwood.com/cn/zh/insights/latest-thinking/a-summary-of-eu-and-us-law-enforcement-on-supply-chain-compliance-in-2025-and-trends-in-2026-ii.html" target="_blank">欧美供应链合规执法年度总结</a><span class="tc-link-src"></span></div>
+    </div></details>
+  </div>
+</section>
+
+<!-- ══ 05 ESG 商机 ══ -->
+<section class="slide" id="s5" style="background:#fff">
+  <div class="snum">05</div>
+  <div class="sh-tag">💼 本月商机雷达</div>
+  <div class="sh-title">ESG 传播商机 Top 10</div>
+  <div class="sh-line"></div>
+  <p style="font-size:.8rem;color:#666;margin-bottom:clamp(8px,1.5vh,16px);line-height:1.6">筛选标准：有真实ESG实践但缺乏叙事能力 × 本月有触发事件 × 决策人可触达</p>
+  <div class="tgrid">
+    <div class="biz-card">
+      <div style="height:3px;background:linear-gradient(90deg,#e63c3c,#f97316)"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#e63c3c">01</span>
+          <span style="font-size:.7rem;background:rgba(230,60,60,.1);color:#e63c3c;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">最优先</span>
+        </div>
+        <div class="biz-name">宁德时代 CATL（300750.SZ）</div>
+        <div class="biz-desc">正在准备第五份ESG报告发布后的欧洲市场沟通，电池护照合规节点迫近（2027年2月），供应链碳足迹数据的第三方验证与对外传播是当下最紧迫的叙事需求。</div>
+        <div class="biz-trigger">第三届电池护照论坛深圳召开（2026-05-13）；CATL 2025年ESG报告发布（2026-03）。持续投资者压力与欧洲市场准入挑战。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://finance.sina.com.cn/roll/2026-05-14/doc-inhxwktz9989966.shtml" target="_blank">电池护照论坛</a><span class="tc-link-src"></span></div>
+        <div class="tc-link"><a href="https://www.catl.com/uploads/1/file/public/202603/20260331120958_q7ox7p1k6m.pdf" target="_blank">CATL ESG报告</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+    <div class="biz-card">
+      <div style="height:3px;background:linear-gradient(90deg,#e63c3c,#f97316)"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#e63c3c">02</span>
+          <span style="font-size:.7rem;background:rgba(230,60,60,.1);color:#e63c3c;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">最优先</span>
+        </div>
+        <div class="biz-name">比亚迪（002594.SZ / 1211.HK）</div>
+        <div class="biz-desc">Q1海外销量同比+55%，欧洲市场战略重心上移，但碳足迹披露和电池护照合规是进入欧洲下一阶段的必经关卡。品牌VP层面需要一套面向欧洲消费者的ESG叙事框架。</div>
+        <div class="biz-trigger">Q1财报发布（2026-04-30），海外销量32万辆。欧盟电池护照2027年2月强制截止。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://www.chinastarmarket.cn/detail/2361311" target="_blank">比亚迪Q1财报</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+    <div class="biz-card">
+      <div style="height:3px;background:#f97316"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#f97316">03</span>
+          <span style="font-size:.7rem;background:rgba(249,115,22,.1);color:#f97316;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">高优</span>
+        </div>
+        <div class="biz-name">李尔公司 Lear（LEA.NYSE）</div>
+        <div class="biz-desc">Q1净利润翻倍，但欧美合规账单同步上升。作为全球最大汽车零部件供应商之一，正面临欧盟供应链尽职调查法规对二级供应商透明化的新要求，可持续发展总监正处于建立全球供应链碳数据体系的关键窗口。</div>
+        <div class="biz-trigger">Q1财报净利润翻倍（2026-05-11），同期欧盟供应链尽职调查法规要求升级。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://www.eet-china.com/mp/a494666.html" target="_blank">李尔Q1财报解析</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+    <div class="biz-card">
+      <div style="height:3px;background:#f97316"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#f97316">04</span>
+          <span style="font-size:.7rem;background:rgba(249,115,22,.1);color:#f97316;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">高优</span>
+        </div>
+        <div class="biz-name">本田汽车（7267.T / HMC.NYSE）</div>
+        <div class="biz-desc">69年首次亏损后宣布放慢电动化节奏，ESG叙事面临「承诺vs财务现实」的正面张力。品牌VP和可持续发展总监急需一套「理性调整」而非「战略退缩」的叙事框架，以稳住投资者信心和欧洲市场合规形象。</div>
+        <div class="biz-trigger">2025财年净亏182亿元（2026-05-14），社长发布会宣布电动化「放慢节奏」。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://wallstreetcn.com/articles/3772390" target="_blank">本田69年首亏，华尔街见闻</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+    <div class="biz-card">
+      <div style="height:3px;background:#f97316"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#f97316">05</span>
+          <span style="font-size:.7rem;background:rgba(249,115,22,.1);color:#f97316;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">高优</span>
+        </div>
+        <div class="biz-name">SHEIN（拟IPO）</div>
+        <div class="biz-desc">供应链劳工问题周期性爆发，每次曝光都在推迟其伦敦/纽约IPO节奏。品牌公关和供应链合规团队正处于「把丑闻转化为改革窗口」的临界点——ESG叙事咨询的切入时机是在下一次曝光前，而不是曝光后。</div>
+        <div class="biz-trigger">《费加罗报》2025年12月血汗工厂调查持续发酵；USTR 2026年3月新一轮301调查涉及强迫劳动。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://www.rfi.fr/cn/%E4%B8%93%E6%A0%8F%E6%A3%80%E7%B4%A2/%E6%B3%95%E5%9B%BD%E6%8A%A5%E7%BA%B8%E6%91%98%E8%A6%81/20251213-%E8%B4%B9%E5%8A%A0%E7%BD%97%E6%8A%A5-%E6%8F%AD%E9%9C%B2shein%E7%9A%84%E8%A1%80%E6%B1%97%E5%B7%A5%E5%8E%82-%E6%AF%8F%E5%A4%A9%E5%B7%A5%E4%BD%9C14%E5%B0%8F%E6%97%B6-%E6%B2%A1%E6%9C%89%E7%A4%BE%E4%BF%9D%E5%92%8C%E5%8C%BB%E4%BF%9D" target="_blank">《费加罗报》揭露SHEIN</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+    <div class="biz-card">
+      <div style="height:3px;background:#f97316"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#f97316">06</span>
+          <span style="font-size:.7rem;background:rgba(249,115,22,.1);color:#f97316;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">高优</span>
+        </div>
+        <div class="biz-name">宝武钢铁集团（中国宝武）</div>
+        <div class="biz-desc">中国最大钢铁企业，欧盟CBAM覆盖重点行业，真实碳排放数据可能优于欧盟默认值，但缺乏有效的对外披露与传播策略，正处于「叙事真空」状态。可持续发展部门和国际业务部门是核心决策人。</div>
+        <div class="biz-trigger">欧盟CBAM碳边境税持续实施，中国钢企出口欧洲面临额外碳成本；中美关税窗口期（2026-11前）是布局期。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://www.huxiu.com/article/4848559.html" target="_blank">中国汽车出海的重要变量虎嗅</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+    <div class="biz-card">
+      <div style="height:3px;background:#06874E"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#06874E">07</span>
+          <span style="font-size:.7rem;background:rgba(6,135,78,.1);color:#06874E;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">跟进</span>
+        </div>
+        <div class="biz-name">丰田汽车（7203.T / TM.NYSE）</div>
+        <div class="biz-desc">2026财年研发投入1.6万亿日元主攻新能源和自动驾驶，但连续两年利润下滑，投资者对ESG承诺的可信度正在发问。可持续发展战略总监面临「用什么故事平息股东质疑」的紧迫压力。</div>
+        <div class="biz-trigger">2025财年财报净利润连续两年下滑（2026-05）；研发投入大幅增加。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://www.21jingji.com/article/20260515/herald/7d0ec199a465dab4f50b5eca14000ecc.html" target="_blank">日系车三巨头赚钱神话破灭</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+    <div class="biz-card">
+      <div style="height:3px;background:#06874E"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#06874E">08</span>
+          <span style="font-size:.7rem;background:rgba(6,135,78,.1);color:#06874E;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">跟进</span>
+        </div>
+        <div class="biz-name">TÜV南德 TÜV SÜD（私有，慕尼黑）</div>
+        <div class="biz-desc">正在电池护照认证市场快速跑马圈地，但面临「如何向中国电池中小企业传达认证价值」的市场教育难题。ESG叙事咨询可以帮助其在中国市场建立「合规伙伴」而非「收费机构」的品牌形象。</div>
+        <div class="biz-trigger">CIBF2026展会演讲（2026-05-14），在华业务拓展节点。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://www.tuvsud.cn/zh-cn/press-and-media/2026/may/cibf-2026" target="_blank">TÜV南德CIBF演讲</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+    <div class="biz-card">
+      <div style="height:3px;background:#06874E"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#06874E">09</span>
+          <span style="font-size:.7rem;background:rgba(6,135,78,.1);color:#06874E;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">跟进</span>
+        </div>
+        <div class="biz-name">瑞浦兰钧能源（0666.HK）</div>
+        <div class="biz-desc">中国第二梯队动力电池企业，正在积极布局欧洲市场，但电池护照合规体系建设尚处于早期阶段，品牌影响力和ESG叙事能力相对薄弱，急需差异化定位。</div>
+        <div class="biz-trigger">第三届电池护照论坛（2026-05-13）；欧盟2027年2月截止日期临近。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://www.ccdp-me.com/news/5b3e46c3-217d-46c8-824c-d4ff93363a36" target="_blank">中国动力电池企业要拼低碳</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+    <div class="biz-card">
+      <div style="height:3px;background:#2563eb"></div>
+      <div class="biz-body">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+          <span style="font-size:.82rem;font-weight:900;color:#2563eb">10</span>
+          <span style="font-size:.7rem;background:rgba(37,99,235,.1);color:#2563eb;padding:2px 8px;border-radius:99px;font-weight:700;flex-shrink:0">观察</span>
+        </div>
+        <div class="biz-name">安踏体育（2020.HK）</div>
+        <div class="biz-desc">中国最大运动服装集团，供应链规模庞大，美欧劳工合规审查对其出口业务构成潜在风险。随着USTR新一轮301调查扩展至供应链人权，主动建立ESG叙事比等待曝光再应对，成本要低得多。</div>
+        <div class="biz-trigger">USTR强迫劳动301调查扩展至全球供应链（2026-03）；纺织服装行业是UFLPA重点关注领域。</div>
+      </div>
+      <div class="tc-links"><div class="tc-links-title">📎 参考资料</div>
+        <div class="tc-link"><a href="https://www.kingandwood.com/cn/zh/insights/latest-thinking/the-new-normal-of-human-rights-compliance-in-supply-chain-convergence-of-us-and-eu-regulations-and-implications-for-chinese-enterprises.html" target="_blank">供应链人权合规新常态</a><span class="tc-link-src"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+var slides = document.querySelectorAll('.slide');
+var dots   = document.querySelectorAll('.dot');
+function goTo(n){ slides[n].scrollIntoView({behavior:'smooth', block:'start'}); }
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var i=[].indexOf.call(slides,e.target);
+      dots.forEach(function(d,j){d.classList.toggle('on',j===i);});
+    }
+  });
+},{threshold:0.25});
+slides.forEach(function(s){obs.observe(s);});
+</script>
+</body>
+</html>
